@@ -1,8 +1,5 @@
 # Rock Paper Scissors
-Rock Paper Scissors is a hand game originating from China usually played between two people in which each player simultaneously forms one of three shapes with an outstretched hand.
-<sup>
-  [Wikipedia]('https://en.wikipedia.org/wiki/Rock_paper_scissors#:~:text=Rock%20Paper%20Scissors%20(also,with%20an%20outstretched%20hand.)
-</sup>
+Rock Paper Scissors is a hand game originating from China usually played between two people in which each player simultaneously forms one of three shapes with an outstretched hand.<sup>[[1]](https://github.com/Candu709/rock-paper-scissor/edit/main/README.md#1-httpsenwikipediaorgwikirock_paper_scissors)</sup>
 
 ## How to play
 The game consist of 5 rounds.  
@@ -24,3 +21,6 @@ The player wins if it has won at least 3 rounds
 
 ## External links
 This is a [project](https://www.theodinproject.com/lessons/foundations-rock-paper-scissors) from the Foundations path of [The Odin Project](https://www.theodinproject.com/)
+
+### References
+##### [1] [https://en.wikipedia.org/wiki/Rock_paper_scissors](https://en.wikipedia.org/wiki/Rock_paper_scissors#:~:text=Rock%20Paper%20Scissors%20(also,with%20an%20outstretched%20hand.))
