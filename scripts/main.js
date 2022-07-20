@@ -50,6 +50,7 @@ function getComputerChoice(){
 // Compare the player's and the machine's choice to determine winner
 //  the player picks first to prevent cheating using Dev tools
 function playRound(playerSelection, computerSelection) {
+  console.log(playerSelection+` vs `+computerSelection);
   if (playerSelection == computerSelection) {return null}
   switch (true) {
     default:
@@ -58,13 +59,27 @@ function playRound(playerSelection, computerSelection) {
     case playerSelection == shapes[0] && computerSelection == shapes[2]:
     case playerSelection == shapes[1] && computerSelection == shapes[0]:
     case playerSelection == shapes[2] && computerSelection == shapes[1]:
-    return true;
+      return true;
   }
 }
 
-// Add point to the winner
-
-const rounds = 5;
 // Game: Repeat round until one of the players points is > 1/2 of rounds
-
+// rounds length has to be odd to ensure a zero-sum game
+const rounds = new Array(5)
+function playGame(){
+  let playerScore = 0
+  let computerScore = 0
+  for (const i of rounds) {
+    rounds[i] = playRound(getPlayerChoice(), shapes[0])
+    if (rounds[i]) ++playerScore;
+    if (rounds[i] == false) ++computerScore;
+    if (playerScore > (rounds.length/2)) {
+      return `You Win!!!`;
+    };
+    if (computerScore > rounds.length/2) {
+      return `You lose...`;
+    };
+  }
+}
 // Declare winner
+alert(playGame())
