@@ -66,7 +66,7 @@ function playRound(playerSelection, computerSelection) {
     case playerSelection == shapes[0] && computerSelection == shapes[2]:
     case playerSelection == shapes[1] && computerSelection == shapes[0]:
     case playerSelection == shapes[2] && computerSelection == shapes[1]:
-      message = `You win! ${computerSelection} Beats ${playerSelection}`;
+      message = `You win! ${playerSelection} Beats ${computerSelection}`;
       console.log(message);
       alert(message);
       return true;
