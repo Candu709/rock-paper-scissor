@@ -39,7 +39,7 @@ function validateInput(input){
 }
 
 // Pick a random shape from the list (Computer "choice")
-function getRandomInt(min,maxExluded){
+function getRandomInt(min, maxExluded){
   return Math.floor(Math.random() * (maxExluded - min) + min)
 }
 
@@ -49,6 +49,19 @@ function getComputerChoice(){
 
 // Compare the player's and the machine's choice to determine winner
 //  the player picks first to prevent cheating using Dev tools
+function playRound(playerSelection, computerSelection) {
+  if (playerSelection == computerSelection) {return null}
+  switch (true) {
+    default:
+    return false;
+    // Matchups that the player wins
+    case playerSelection == shapes[0] && computerSelection == shapes[2]:
+    case playerSelection == shapes[1] && computerSelection == shapes[0]:
+    case playerSelection == shapes[2] && computerSelection == shapes[1]:
+    return true;
+  }
+}
+
 // Add point to the winner
 
 const rounds = 5;
