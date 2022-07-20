@@ -50,8 +50,12 @@ function getComputerChoice(){
 // Compare the player's and the machine's choice to determine winner
 //  the player picks first to prevent cheating using Dev tools
 function playRound(playerSelection, computerSelection) {
-  console.log(playerSelection+` vs `+computerSelection);
-  if (playerSelection == computerSelection) {return null}
+  if (playerSelection == computerSelection) {
+    let message = `It's a Tie! You both played ${playerSelection}\nTry again`;
+    console.log(message);
+    alert(message);
+    return playRound(getPlayerChoice(),getComputerChoice());
+  };
   switch (true) {
     default:
     return false;
