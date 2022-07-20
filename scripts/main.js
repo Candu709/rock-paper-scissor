@@ -61,8 +61,8 @@ function playRound(playerSelection, computerSelection) {
       let message = `You lose! ${computerSelection} Beats ${playerSelection}`;
       console.log(message);
       alert(message);
-    return false;
-    // Matchups that the player wins
+      return false;
+      // Matchups that the player wins
     case playerSelection == shapes[0] && computerSelection == shapes[2]:
     case playerSelection == shapes[1] && computerSelection == shapes[0]:
     case playerSelection == shapes[2] && computerSelection == shapes[1]:
@@ -84,10 +84,12 @@ function playGame(){
     if (rounds[i]) ++playerScore;
     if (rounds[i] == false) ++computerScore;
     if (playerScore > (rounds.length/2)) {
-      return `You Win!!!`;
+      console.log(`You Win!`);
+      return `You Win!`;
     };
     if (computerScore > rounds.length/2) {
-      return `You lose...`;
+      console.log(`You lose.`);
+      return `You lose.`;
     };
   }
 }
