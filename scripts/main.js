@@ -81,8 +81,7 @@ function playGame(){
   let computerScore = 0
   for (i = 0; i < rounds.length; i++) {
     rounds[i] = playRound(getPlayerChoice(), shapes[0])
-    if (rounds[i]) {
-      ++playerScore;
+    if (rounds[i]) ++playerScore;
     if (rounds[i] == false) ++computerScore;
     if (playerScore > (rounds.length/2)) {
       console.log(`You Win!`);
