@@ -74,8 +74,9 @@ function playRound(playerSelection, computerSelection) {
 }
 
 // Game: Repeat round until one of the players points is > 1/2 of rounds
-// rounds length has to be odd to ensure a zero-sum game
-const rounds = new Array(5).fill(' ')
+function playGame(){
+  // rounds length has to be odd to ensure a zero-sum game
+  const rounds = new Array(5).fill(' ')
 function playGame(){
   let playerScore = 0
   let computerScore = 0
