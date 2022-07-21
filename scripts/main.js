@@ -79,10 +79,11 @@ const rounds = new Array(5)
 function playGame(){
   let playerScore = 0
   let computerScore = 0
-  for (const round of rounds) {
-    round = playRound(getPlayerChoice(), shapes[0])
-    if (round) ++playerScore;
-    if (round == false) ++computerScore;
+  for (i = 0; i < rounds.length; i++) {
+    rounds[i] = playRound(getPlayerChoice(), shapes[0])
+    if (rounds[i]) {
+      ++playerScore;
+    if (rounds[i] == false) ++computerScore;
     if (playerScore > (rounds.length/2)) {
       console.log(`You Win!`);
       return `You Win!`;
