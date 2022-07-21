@@ -80,6 +80,7 @@ function playGame(){
   let playerScore = 0
   let computerScore = 0
   for (i = 0; i < rounds.length; i++) {
+    // computer fixed to stone for testing purposes, tie for random
     rounds[i] = playRound(getPlayerChoice(), shapes[0])
     if (rounds[i]) ++playerScore;
     if (rounds[i] == false) ++computerScore;
