@@ -84,7 +84,11 @@ function playGame(){
         message = `You lose! ${computerSelection} Beats ${playerSelection}`;
         console.log(message);
         alert(message);
-        return false;
+      return {
+        result: `Lose`,
+        winner: computerSelection,
+        loser: playerSelection
+      }
       // Matchups that the player wins
       case playerSelection == shapes[0] && computerSelection == shapes[2]:
       case playerSelection == shapes[1] && computerSelection == shapes[0]:
@@ -93,7 +97,11 @@ function playGame(){
         message = `You win! ${playerSelection} Beats ${computerSelection}`;
         console.log(message);
         alert(message);
-        return true;
+      return {
+      result: `Win`,
+        winner: playerSelection,
+        loser: computerSelection
+      };
     }
   }
 }
