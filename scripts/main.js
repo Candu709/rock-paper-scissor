@@ -23,7 +23,11 @@ function getPlayerChoice(){
 
 // Check the input against the list:
 function validateInput(input){
-  input = input.trim()
+  if (!input) {
+    alert (`Please type in a value`)
+    return false
+  }
+  input.trim()
   shapeName = input.toLowerCase()
   switch (shapeName) {
     case `rock`:
@@ -33,7 +37,7 @@ function validateInput(input){
     case `scissors`:
     return shapes[2];
     default:
-    alert(`${input} is not a valid shape`)
+    alert(`"${input}" is not a valid shape`)
     return false;
   }
 }
