@@ -60,6 +60,7 @@ function playGame(){
   for (i = 0; i < rounds.length; i++) {
     // computer fixed to stone for testing purposes, tie for random
     rounds[i] = playRound(getPlayerChoice(), shapes[0])
+      logRound(rounds[i])
     if (playerScore > (rounds.length/2)) {
       console.log(`You Win!`);
       return `You Win!`;
@@ -81,9 +82,6 @@ function playGame(){
     switch (true) {
       default:
         ++computerScore
-        message = `You lose! ${computerSelection} Beats ${playerSelection}`;
-        console.log(message);
-        alert(message);
       return {
         result: `Lose`,
         winner: computerSelection,
@@ -94,9 +92,6 @@ function playGame(){
       case playerSelection == shapes[1] && computerSelection == shapes[0]:
       case playerSelection == shapes[2] && computerSelection == shapes[1]:
         ++playerScore
-        message = `You win! ${playerSelection} Beats ${computerSelection}`;
-        console.log(message);
-        alert(message);
       return {
       result: `Win`,
         winner: playerSelection,
