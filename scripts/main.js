@@ -106,19 +106,18 @@ function playGame(){
   }
 }
 // Declare winner
-function displayRound(round){
-  let message = `You ${round.result}!`
+function logRound(round){
+  let message = `You ${round.result}! `
   switch (round.result){
     case `Tied`:
-    message += ` You both played ${round.playerChoice} \nTry again!`;
+      message += `You both played ${round.loser}`;
+      message += `\nTry again!`;
     break
-    case `Win`:
-    message += ` ${round.playerChoice} Beats ${round.computerChoice}`;
+    default:
+      message += `${round.winner} beats ${round.loser}`;
     break
-    case `Lose`:
-    message += ` ${round.computerChoice} Beats ${round.playerChoice}`
   }
   console.log(message)
-  alert(message)
 }
+
 alert(playGame())
