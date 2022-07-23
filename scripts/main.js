@@ -58,9 +58,11 @@ function playGame(){
   let playerScore = 0
   let computerScore = 0
   for (i = 0; i < rounds.length; i++) {
+    do {
     // computer fixed to stone for testing purposes, tie for random
     rounds[i] = playRound(getPlayerChoice(), shapes[0])
       logRound(rounds[i])
+    } while (rounds[i].result == `Tie`);
     if (playerScore > (rounds.length/2)) {
       console.log(`You Win!`);
       return `You Win!`;
