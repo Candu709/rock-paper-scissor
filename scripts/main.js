@@ -1,10 +1,10 @@
 // Store a list of the possible hand shapes
-//   (should prob be an object but havent dealt with those yet)
+//   (should prob be an object but haven't dealt with those yet)
 const shapes = [
   `✊ Rock`,
   `✋ Paper`,
   `✌ Scissors`
-];
+]
 
 // Ask the player for an input
 function getPlayerChoice(){
@@ -31,20 +31,20 @@ function validateInput(input){
   shapeName = input.toLowerCase()
   switch (shapeName) {
     case `rock`:
-    return shapes[0];
+    return shapes[0]
     case `paper`:
-    return shapes[1];
+    return shapes[1]
     case `scissors`:
-    return shapes[2];
+    return shapes[2]
     default:
     alert(`"${input}" is not a valid shape`)
-    return false;
+    return false
   }
 }
 
 // Pick a random shape from the list (Computer "choice")
-function getRandomInt(min, maxExluded){
-  return Math.floor(Math.random() * (maxExluded - min) + min)
+function getRandomInt(min, maxExcluded){
+  return Math.floor(Math.random() * (maxExcluded - min) + min)
 }
 
 function getComputerChoice(){
@@ -62,15 +62,15 @@ function playGame(){
       // computer fixed to stone for testing purposes, tie for random
       rounds[i] = playRound(getPlayerChoice(), shapes[0])
       logRound(rounds[i])
-    } while (rounds[i].result == `Tie`);
+    } while (rounds[i].result == `Tie`)
     if (playerScore > (rounds.length/2)) {
-      console.log(`You Win!`);
-      return `You Win!`;
-    };
+      console.log(`You Win!`)
+      return `You Win!`
+    }
     if (computerScore > rounds.length/2) {
-      console.log(`You lose.`);
-      return `You lose.`;
-    };
+      console.log(`You lose.`)
+      return `You lose.`
+    }
   }
 
   // Compare the player's and the machine's choice to determine winner
@@ -79,7 +79,7 @@ function playGame(){
       result: `Tied`,
       winner: playerSelection,
       loser: computerSelection
-    };
+    }
     switch (true) {
       default:
       ++computerScore
@@ -88,7 +88,7 @@ function playGame(){
         winner: computerSelection,
         loser: playerSelection
       }
-      // Matchups that the player wins
+      // Matchup that the player wins
       case playerSelection == shapes[0] && computerSelection == shapes[2]:
       case playerSelection == shapes[1] && computerSelection == shapes[0]:
       case playerSelection == shapes[2] && computerSelection == shapes[1]:
@@ -97,7 +97,7 @@ function playGame(){
         result: `Win`,
         winner: playerSelection,
         loser: computerSelection
-      };
+      }
     }
   }
 }
@@ -106,11 +106,11 @@ function logRound(round){
   let message = `You ${round.result}! `
   switch (round.result){
     case `Tied`:
-      message += `You both played ${round.loser}`;
-      message += `\nTry again!`;
+      message += `You both played ${round.loser}`
+      message += `\nTry again!`
       break
     default:
-     message += `${round.winner} beats ${round.loser}`;
+     message += `${round.winner} beats ${round.loser}`
      break
   }
   console.log(message)
