@@ -59,8 +59,8 @@ function playGame(){
   let computerScore = 0
   for (i = 0; i < rounds.length; i++) {
     do {
-    // computer fixed to stone for testing purposes, tie for random
-    rounds[i] = playRound(getPlayerChoice(), shapes[0])
+      // computer fixed to stone for testing purposes, tie for random
+      rounds[i] = playRound(getPlayerChoice(), shapes[0])
       logRound(rounds[i])
     } while (rounds[i].result == `Tie`);
     if (playerScore > (rounds.length/2)) {
@@ -75,15 +75,14 @@ function playGame(){
 
   // Compare the player's and the machine's choice to determine winner
   function playRound(playerSelection, computerSelection) {
-    if (playerSelection == computerSelection) {
-      let message = `It's a Tie! You both played ${playerSelection}\nTry again`;
-      console.log(message);
-      alert(message);
-      return playRound(getPlayerChoice(),getComputerChoice());
+    if (playerSelection == computerSelection) return {
+      result: `Tied`,
+      winner: playerSelection,
+      loser: computerSelection
     };
     switch (true) {
       default:
-        ++computerScore
+      ++computerScore
       return {
         result: `Lose`,
         winner: computerSelection,
@@ -95,7 +94,7 @@ function playGame(){
       case playerSelection == shapes[2] && computerSelection == shapes[1]:
         ++playerScore
       return {
-      result: `Win`,
+        result: `Win`,
         winner: playerSelection,
         loser: computerSelection
       };
@@ -109,10 +108,10 @@ function logRound(round){
     case `Tied`:
       message += `You both played ${round.loser}`;
       message += `\nTry again!`;
-    break
+      break
     default:
-      message += `${round.winner} beats ${round.loser}`;
-    break
+     message += `${round.winner} beats ${round.loser}`;
+     break
   }
   console.log(message)
 }
