@@ -1,12 +1,9 @@
-// Store a list of the possible hand shapes
-//   (should prob be an object but haven't dealt with those yet)
 const shapes = [
   `✊ Rock`,
   `✋ Paper`,
   `✌ Scissors`
 ]
 
-// Ask the player for an input
 function getPlayerChoice(){
   let playerChoice
   do {
@@ -16,12 +13,10 @@ function getPlayerChoice(){
     ✌ Scissors
     `)
     playerChoice = validateInput(playerChoice)
-    // If invalid ask again
   } while (!playerChoice)
   return playerChoice
 }
 
-// Check the input against the list:
 function validateInput(input){
   if (!input) {
     alert (`Please type in a value`)
@@ -41,8 +36,7 @@ function validateInput(input){
     return false
   }
 }
-
-// Pick a random shape from the list (Computer "choice")
+// returns a random int between minimum included and maximum excluded
 function getRandomInt(min, maxExcluded){
   return Math.floor(Math.random() * (maxExcluded - min) + min)
 }
@@ -51,7 +45,6 @@ function getComputerChoice(){
   return shapes[getRandomInt(0,shapes.length)]
 }
 
-// Game: Repeat round until one of the players points is > 1/2 of rounds
 function playGame(){
   // rounds length has to be odd to ensure a zero-sum game
   const rounds = new Array(5).fill(' ')
@@ -72,7 +65,6 @@ function playGame(){
     }
   }
 
-  // Compare the player's and the machine's choice to determine winner
   function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) return {
       result: `Tied`,
@@ -87,7 +79,7 @@ function playGame(){
         winner: computerSelection,
         loser: playerSelection
       }
-      // Matchup that the player wins
+      
       case playerSelection == shapes[0] && computerSelection == shapes[2]:
       case playerSelection == shapes[1] && computerSelection == shapes[0]:
       case playerSelection == shapes[2] && computerSelection == shapes[1]:
@@ -100,7 +92,7 @@ function playGame(){
     }
   }
 }
-// Declare winner
+
 function logRound(round){
   let message = `You ${round.result}! `
   switch (round.result){
