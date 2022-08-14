@@ -17,7 +17,7 @@ rounds.fill({
 })
 
 // returns a random int between minimum included and maximum excluded
-function getRandomInt(min, maxExcluded){
+function getRandomInt(min, maxExcluded) {
   return Math.floor(Math.random() * (maxExcluded - min) + min)
 }
 
@@ -26,11 +26,11 @@ function getComputerChoice() {
 }
 
 function checkWinner() {
-  if (playerScore > (rounds.length/2)) {
+  if (playerScore > (rounds.length / 2)) {
     console.log(`You Win!`);
     return `You Win!`;
   }
-  if (computerScore > rounds.length/2) {
+  if (computerScore > rounds.length / 2) {
     console.log(`You lose.`);
     return `You lose.`;
   }
@@ -65,9 +65,9 @@ function playRound(playerSelection, computerSelection) {
   if (result != `Tied`) round++;
 }
 
-function logRound(round){
+function logRound(round) {
   let message = `You ${round.result}! `
-  switch (round.result){
+  switch (round.result) {
     case `Tied`:
       message += `You both played ${round.loser}`
       message += `\nTry again!`
