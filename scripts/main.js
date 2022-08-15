@@ -4,17 +4,13 @@ const shapes = [
   `✌ Scissors`
 ]
 
+const rounds = [];
+let roundNumber = 1
 // rounds length has to be odd to ensure a zero-sum game
-const rounds = new Array(5)
-let round = 0 // counter for rounds index
-let matchPoint = rounds.length
+let length = 5;
+let matchPoint = length / 2;
 let playerScore = 0
 let computerScore = 0
-rounds.fill({
-  result: '',
-  winner: '',
-  loser: ''
-})
 
 // returns a random int between minimum included and maximum excluded
 function getRandomInt(min, maxExcluded) {
@@ -28,10 +24,12 @@ function getComputerChoice() {
 function checkWinner() {
   if (playerScore > (rounds.length / 2)) {
     console.log(`You Win!`);
+    console.table(rounds)
     return `You Win!`;
   }
   if (computerScore > rounds.length / 2) {
     console.log(`You lose.`);
+    console.table(rounds)
     return `You lose.`;
   }
 }
@@ -59,10 +57,11 @@ function playRound(playerSelection, computerSelection) {
       loser = playerSelection;
       break
   }
-  rounds[round] = { result, winner, loser };
-  logRound(rounds[round])
-  if (round > matchPoint) checkWinner();
-  if (result != `Tied`) round++;
+  const round = { number: roundNumber, result, winner, loser }
+  rounds.push(round);
+  logRound(round);
+  if (roundNumber > matchPoint) checkWinner();
+  if (result != `Tied`) roundNumber++;
 }
 
 function logRound(round) {
